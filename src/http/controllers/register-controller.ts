@@ -1,6 +1,7 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
-import { registerUseCase } from '../../use-cases/register-use-case';
+import { UsersRepository } from '../../repositories/users-repository';
+import { RegisterUseCase } from '../../use-cases/register-use-case';
 
 export async function register(request: FastifyRequest, reply: FastifyReply) {
   const registerBodySchema = z.object({
@@ -12,7 +13,10 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
   const { name, email, password } = registerBodySchema.parse(request.body);
 
   try {
-    await registerUseCase({ name, email, password });
+    const usersRepository = new UsersRepository();
+    const registerUseCase = new RegisterUseCase(usersRepository);
+
+    await registerUseCase.execute({ name, email, password });
     return reply.status(201).send();
   } catch {
     reply.status(500).send();
