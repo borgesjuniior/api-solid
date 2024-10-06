@@ -7,8 +7,8 @@ interface GetUserProfileUseCaseRequest {
 
 export class GetUserProfileUseCase {
   constructor(private usersRepository: UsersRepositoryInterface) {}
-  execute({ userId }: GetUserProfileUseCaseRequest) {
-    const user = this.usersRepository.findById(userId);
+  async execute({ userId }: GetUserProfileUseCaseRequest) {
+    const user = await this.usersRepository.findById(userId);
 
     if (!user) {
       throw new ResourceNotFoundError();
