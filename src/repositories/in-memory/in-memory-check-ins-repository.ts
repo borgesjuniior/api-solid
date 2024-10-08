@@ -25,7 +25,7 @@ export class InMemoryCheckInsRepository implements CheckInsRepositoryInterface {
     return checkInOnSameDate;
   }
 
-  async findManyById(userId: string, page: number) {
+  async findManyByUserId(userId: string, page: number) {
     const checkIns = this.database
       .filter((checkIn) => checkIn.user_id === userId)
       .slice((page - 1) * 20, page * 20);
