@@ -36,8 +36,6 @@ describe('Fetch User History Check-ins', () => {
         user_id: 'user-01',
         gym_id: `gym-${index}`,
       });
-
-      console.log(index);
     }
 
     const { checkIns } = await sut.execute({
