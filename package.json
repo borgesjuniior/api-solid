@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsup src -d build",
@@ -21,6 +20,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
+    "@fastify/jwt": "^9.0.1",
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^22.7.4",
     "@vitest/coverage-v8": "^2.1.2",
