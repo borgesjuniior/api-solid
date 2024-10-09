@@ -12,7 +12,7 @@ describe('Crete Gym Use Case', () => {
   });
 
   it('should be able to create a gym', async () => {
-    const { gym } = await sut.create({
+    const { gym } = await sut.execute({
       title: 'Gym',
       description: null,
       phone: null,

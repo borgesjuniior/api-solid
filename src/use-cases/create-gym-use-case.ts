@@ -11,7 +11,7 @@ interface CreateGymUseCaseRequest {
 export class CreateGymUseCase {
   constructor(private gymsRepository: GymsRepositoryInterface) {}
 
-  async create({
+  async execute({
     title,
     description,
     phone,
